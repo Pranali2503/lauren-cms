@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_progress_bars",
+  "info": {
+    "displayName": "progress_bar"
+  },
+  "options": {},
+  "attributes": {
+    "percent": {
+      "type": "integer"
+    },
+    "step": {
+      "type": "integer"
+    },
+    "total_steps": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

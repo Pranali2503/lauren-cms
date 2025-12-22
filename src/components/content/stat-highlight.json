@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_stat_highlights",
+  "info": {
+    "displayName": "stat-highlight"
+  },
+  "options": {},
+  "attributes": {
+    "stat_label": {
+      "type": "string"
+    },
+    "stat_value": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learning_modules",
+  "info": {
+    "singularName": "learning-module",
+    "pluralName": "learning-modules",
+    "displayName": "Learning Module"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "summary": {
+      "type": "text"
+    },
+    "weekRange": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "estimatedDurationMinutes": {
+      "type": "integer"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "topic": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::learning-topic.learning-topic",
+      "inversedBy": "modules"
+    },
+    "subtopics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subtopic.subtopic",
+      "mappedBy": "module"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "isBaseTemplate": {
+      "type": "boolean"
+    }
+  }
+}

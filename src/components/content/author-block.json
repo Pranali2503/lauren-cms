@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_author_blocks",
+  "info": {
+    "displayName": "author_block"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "role": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

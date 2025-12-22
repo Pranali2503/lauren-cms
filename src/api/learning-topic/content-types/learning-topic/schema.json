@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learning_topics",
+  "info": {
+    "singularName": "learning-topic",
+    "pluralName": "learning-topics",
+    "displayName": "Learning Topics"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "summary": {
+      "type": "text"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::learning-module.learning-module",
+      "mappedBy": "topic"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "isBaseTemplate": {
+      "type": "boolean"
+    },
+    "learningCategory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::learning-category.learning-category",
+      "inversedBy": "topics"
+    }
+  }
+}

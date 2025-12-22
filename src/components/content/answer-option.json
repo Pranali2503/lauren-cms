@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_content_answer_options",
+  "info": {
+    "displayName": "answer-option"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "is_correct": {
+      "type": "boolean",
+      "default": false
+    },
+    "explanation": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

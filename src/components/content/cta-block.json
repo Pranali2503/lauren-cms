@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_content_cta_blocks",
+  "info": {
+    "displayName": "cta-block"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "action_type": {
+      "type": "enumeration",
+      "enum": [
+        "start",
+        "continue",
+        "finish"
+      ]
+    },
+    "target_url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

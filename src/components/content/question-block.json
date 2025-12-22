@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_content_question_blocks",
+  "info": {
+    "displayName": "Question-block"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "help_text": {
+      "type": "text"
+    },
+    "allow_multiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.answer-option"
+    }
+  },
+  "config": {}
+}

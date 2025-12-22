@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learning_categories",
+  "info": {
+    "singularName": "learning-category",
+    "pluralName": "learning-categories",
+    "displayName": "Learning Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "blocks"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "organization": {
+      "type": "string"
+    },
+    "isBaseTemplate": {
+      "type": "boolean"
+    },
+    "topics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::learning-topic.learning-topic",
+      "mappedBy": "learningCategory"
+    }
+  }
+}
