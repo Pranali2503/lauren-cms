@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wellness_videos",
+  "info": {
+    "singularName": "wellness-video",
+    "pluralName": "wellness-videos",
+    "displayName": "Wellness Video"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "durationMinutes": {
+      "type": "integer"
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "wellnessVideos"
+    },
+    "transcriptUrl": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "wellness_topic": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wellness-topic.wellness-topic",
+      "inversedBy": "wellness_videos"
+    }
+  }
+}

@@ -495,6 +495,10 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    wellnessVideos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wellness-video.wellness-video'
+    >;
   };
 }
 
@@ -670,6 +674,84 @@ export interface ApiSubtopicSubtopic extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWellnessTopicWellnessTopic
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'wellness_topics';
+  info: {
+    displayName: 'Wellness Topic';
+    pluralName: 'wellness-topics';
+    singularName: 'wellness-topic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wellness-topic.wellness-topic'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wellness_videos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wellness-video.wellness-video'
+    >;
+  };
+}
+
+export interface ApiWellnessVideoWellnessVideo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'wellness_videos';
+  info: {
+    displayName: 'Wellness Video';
+    pluralName: 'wellness-videos';
+    singularName: 'wellness-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    durationMinutes: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wellness-video.wellness-video'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    thumbnail: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    transcriptUrl: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
+    wellness_topic: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::wellness-topic.wellness-topic'
+    >;
   };
 }
 
@@ -1189,6 +1271,8 @@ declare module '@strapi/strapi' {
       'api::learning-module.learning-module': ApiLearningModuleLearningModule;
       'api::learning-topic.learning-topic': ApiLearningTopicLearningTopic;
       'api::subtopic.subtopic': ApiSubtopicSubtopic;
+      'api::wellness-topic.wellness-topic': ApiWellnessTopicWellnessTopic;
+      'api::wellness-video.wellness-video': ApiWellnessVideoWellnessVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

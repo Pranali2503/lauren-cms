@@ -32,6 +32,12 @@
       "relation": "oneToMany",
       "target": "api::subtopic.subtopic",
       "mappedBy": "author"
+    },
+    "wellnessVideos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wellness-video.wellness-video",
+      "mappedBy": "author"
     }
   }
 }

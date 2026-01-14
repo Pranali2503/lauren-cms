@@ -44,6 +44,10 @@ export interface ContentEmbedBlock extends Struct.ComponentSchema {
   attributes: {
     type: Schema.Attribute.Enumeration<['video', 'animation']>;
     url: Schema.Attribute.String;
+    video: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
   };
 }
 

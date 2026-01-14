@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wellness_topics",
+  "info": {
+    "singularName": "wellness-topic",
+    "pluralName": "wellness-topics",
+    "displayName": "Wellness Topic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "wellness_videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wellness-video.wellness-video",
+      "mappedBy": "wellness_topic"
+    }
+  }
+}
