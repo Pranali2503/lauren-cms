@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_onboarding_form_field",
+  "info": {
+    "displayName": "Form Field",
+    "description": "Form field configuration"
+  },
+  "options": {},
+  "attributes": {
+    "fieldKey": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "email",
+        "phone",
+        "select"
+      ],
+      "default": "text"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    }
+  }
+}

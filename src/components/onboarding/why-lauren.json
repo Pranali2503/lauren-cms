@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_onboarding_why_lauren",
+  "info": {
+    "displayName": "Why Lauren Content",
+    "description": "Why Lauren section with multiple subsections"
+  },
+  "options": {},
+  "attributes": {
+    "contentTitle": {
+      "type": "string",
+      "default": "Why Lauren?"
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.why-lauren-subsection"
+    }
+  }
+}

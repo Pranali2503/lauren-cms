@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboarding_walkthroughs",
+  "info": {
+    "singularName": "onboarding-walkthrough",
+    "pluralName": "onboarding-walkthroughs",
+    "displayName": "Onboarding Walkthrough"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role": {
+      "type": "enumeration",
+      "enum": [
+        "EMPLOYER_ADMIN",
+        "CARE_NAVIGATOR",
+        "HEALTHCARE_PROVIDER",
+        "MIDWIFE"
+      ],
+      "required": true
+    },
+    "organizationType": {
+      "type": "enumeration",
+      "enum": [
+        "HEALTHCARE",
+        "NON_HEALTHCARE"
+      ],
+      "required": true
+    },
+    "headerTitle": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::onboarding-walkthrough-section.onboarding-walkthrough-section",
+      "mappedBy": "walkthrough"
+    },
+    "buttonLabels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "onboarding.button-labels"
+    }
+  }
+}

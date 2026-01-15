@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_onboarding_contact_method",
+  "info": {
+    "displayName": "Contact Method",
+    "description": "Contact method option"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    }
+  }
+}

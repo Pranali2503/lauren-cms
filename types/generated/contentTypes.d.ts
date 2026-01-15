@@ -625,6 +625,99 @@ export interface ApiLearningTopicLearningTopic
   };
 }
 
+export interface ApiOnboardingWalkthroughSectionOnboardingWalkthroughSection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_walkthrough_sections';
+  info: {
+    displayName: 'Walkthrough Section';
+    pluralName: 'onboarding-walkthrough-sections';
+    singularName: 'onboarding-walkthrough-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    additionalContent: Schema.Attribute.Component<
+      'onboarding.additional-content',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-walkthrough-section.onboarding-walkthrough-section'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    publishedAt: Schema.Attribute.DateTime;
+    sectionKey: Schema.Attribute.UID & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'videos'>;
+    videoDescription: Schema.Attribute.Text;
+    videoUrl: Schema.Attribute.String;
+    walkthrough: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::onboarding-walkthrough.onboarding-walkthrough'
+    >;
+  };
+}
+
+export interface ApiOnboardingWalkthroughOnboardingWalkthrough
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'onboarding_walkthroughs';
+  info: {
+    displayName: 'Onboarding Walkthrough';
+    pluralName: 'onboarding-walkthroughs';
+    singularName: 'onboarding-walkthrough';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLabels: Schema.Attribute.Component<'onboarding.button-labels', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    headerTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-walkthrough.onboarding-walkthrough'
+    > &
+      Schema.Attribute.Private;
+    organizationType: Schema.Attribute.Enumeration<
+      ['HEALTHCARE', 'NON_HEALTHCARE']
+    > &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.Enumeration<
+      ['EMPLOYER_ADMIN', 'CARE_NAVIGATOR', 'HEALTHCARE_PROVIDER', 'MIDWIFE']
+    > &
+      Schema.Attribute.Required;
+    sections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onboarding-walkthrough-section.onboarding-walkthrough-section'
+    >;
+    subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSubtopicSubtopic extends Struct.CollectionTypeSchema {
   collectionName: 'subtopics';
   info: {
@@ -1270,6 +1363,8 @@ declare module '@strapi/strapi' {
       'api::learning-category.learning-category': ApiLearningCategoryLearningCategory;
       'api::learning-module.learning-module': ApiLearningModuleLearningModule;
       'api::learning-topic.learning-topic': ApiLearningTopicLearningTopic;
+      'api::onboarding-walkthrough-section.onboarding-walkthrough-section': ApiOnboardingWalkthroughSectionOnboardingWalkthroughSection;
+      'api::onboarding-walkthrough.onboarding-walkthrough': ApiOnboardingWalkthroughOnboardingWalkthrough;
       'api::subtopic.subtopic': ApiSubtopicSubtopic;
       'api::wellness-topic.wellness-topic': ApiWellnessTopicWellnessTopic;
       'api::wellness-video.wellness-video': ApiWellnessVideoWellnessVideo;

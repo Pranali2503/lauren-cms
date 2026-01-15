@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_onboarding_button_labels",
+  "info": {
+    "displayName": "Button Labels",
+    "description": "Button text labels for walkthrough"
+  },
+  "options": {},
+  "attributes": {
+    "watchVideo": {
+      "type": "string",
+      "default": "Watch video"
+    },
+    "learnMore": {
+      "type": "string",
+      "default": "Learn More"
+    },
+    "continue": {
+      "type": "string",
+      "default": "Continue"
+    },
+    "completing": {
+      "type": "string",
+      "default": "Completing..."
+    }
+  }
+}

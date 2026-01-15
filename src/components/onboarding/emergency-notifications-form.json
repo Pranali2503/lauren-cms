@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_onboarding_emergency_notifications_form",
+  "info": {
+    "displayName": "Emergency Notifications Form",
+    "description": "Form configuration for emergency notifications"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Patient Emergency Notifications"
+    },
+    "description": {
+      "type": "text",
+      "default": "Name a contact person to be notified if there are health issues detected during monitoring of your patient."
+    },
+    "formFields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.form-field"
+    },
+    "contactMethods": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.contact-method"
+    }
+  }
+}

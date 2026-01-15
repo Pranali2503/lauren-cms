@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_onboarding_additional_content",
+  "info": {
+    "displayName": "Additional Content",
+    "description": "Additional content for walkthrough sections. Only fill the component that matches the Content Type selected."
+  },
+  "options": {},
+  "attributes": {
+    "contentType": {
+      "type": "enumeration",
+      "enum": [
+        "WHY_LAUREN",
+        "TEAM_MEMBERS",
+        "EMERGENCY_NOTIFICATIONS_FORM",
+        "NONE"
+      ],
+      "default": "NONE",
+      "required": false
+    },
+    "whyLauren": {
+      "type": "component",
+      "repeatable": false,
+      "required": false,
+      "component": "onboarding.why-lauren"
+    },
+    "teamMembers": {
+      "type": "component",
+      "repeatable": true,
+      "required": false,
+      "component": "onboarding.team-member"
+    },
+    "emergencyNotificationsForm": {
+      "type": "component",
+      "repeatable": false,
+      "required": false,
+      "component": "onboarding.emergency-notifications-form"
+    }
+  }
+}
