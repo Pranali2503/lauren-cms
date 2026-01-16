@@ -9,32 +9,56 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "role": {
       "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
       "enum": [
         "EMPLOYER_ADMIN",
         "CARE_NAVIGATOR",
         "HEALTHCARE_PROVIDER",
         "MIDWIFE"
-      ],
-      "required": true
+      ]
     },
     "organizationType": {
       "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
       "enum": [
         "HEALTHCARE",
         "NON_HEALTHCARE"
-      ],
-      "required": true
+      ]
     },
     "headerTitle": {
       "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "required": true
     },
     "subtitle": {
       "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "required": true
     },
     "sections": {
@@ -45,8 +69,13 @@
     },
     "buttonLabels": {
       "type": "component",
-      "repeatable": false,
-      "component": "onboarding.button-labels"
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "onboarding.button-labels",
+      "repeatable": false
     }
   }
 }
