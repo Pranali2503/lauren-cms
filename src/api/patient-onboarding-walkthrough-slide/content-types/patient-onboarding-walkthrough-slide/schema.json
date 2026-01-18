@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patient_onboarding_walkthrough_slides",
+  "info": {
+    "singularName": "patient-onboarding-walkthrough-slide",
+    "pluralName": "patient-onboarding-walkthrough-slides",
+    "displayName": "Patient Walkthrough Slide"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slideKey": {
+      "type": "uid",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "min": 1
+    },
+    "image": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "walkthrough": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::patient-onboarding-walkthrough.patient-onboarding-walkthrough",
+      "inversedBy": "slides"
+    }
+  }
+}

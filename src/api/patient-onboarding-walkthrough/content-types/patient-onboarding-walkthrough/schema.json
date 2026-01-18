@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patient_onboarding_walkthroughs",
+  "info": {
+    "singularName": "patient-onboarding-walkthrough",
+    "pluralName": "patient-onboarding-walkthroughs",
+    "displayName": "Patient Onboarding Walkthrough"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "headerTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "slides": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::patient-onboarding-walkthrough-slide.patient-onboarding-walkthrough-slide",
+      "mappedBy": "walkthrough"
+    }
+  }
+}

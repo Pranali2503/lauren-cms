@@ -935,6 +935,127 @@ export interface ApiOnboardingWalkthroughOnboardingWalkthrough
   };
 }
 
+export interface ApiPatientOnboardingWalkthroughSlidePatientOnboardingWalkthroughSlide
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'patient_onboarding_walkthrough_slides';
+  info: {
+    displayName: 'Patient Walkthrough Slide';
+    pluralName: 'patient-onboarding-walkthrough-slides';
+    singularName: 'patient-onboarding-walkthrough-slide';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::patient-onboarding-walkthrough-slide.patient-onboarding-walkthrough-slide'
+    >;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    publishedAt: Schema.Attribute.DateTime;
+    slideKey: Schema.Attribute.UID & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    walkthrough: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::patient-onboarding-walkthrough.patient-onboarding-walkthrough'
+    >;
+  };
+}
+
+export interface ApiPatientOnboardingWalkthroughPatientOnboardingWalkthrough
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'patient_onboarding_walkthroughs';
+  info: {
+    displayName: 'Patient Onboarding Walkthrough';
+    pluralName: 'patient-onboarding-walkthroughs';
+    singularName: 'patient-onboarding-walkthrough';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    headerTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::patient-onboarding-walkthrough.patient-onboarding-walkthrough'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slides: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::patient-onboarding-walkthrough-slide.patient-onboarding-walkthrough-slide'
+    >;
+    subtitle: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSubtopicSubtopic extends Struct.CollectionTypeSchema {
   collectionName: 'subtopics';
   info: {
@@ -1689,6 +1810,8 @@ declare module '@strapi/strapi' {
       'api::learning-topic.learning-topic': ApiLearningTopicLearningTopic;
       'api::onboarding-walkthrough-section.onboarding-walkthrough-section': ApiOnboardingWalkthroughSectionOnboardingWalkthroughSection;
       'api::onboarding-walkthrough.onboarding-walkthrough': ApiOnboardingWalkthroughOnboardingWalkthrough;
+      'api::patient-onboarding-walkthrough-slide.patient-onboarding-walkthrough-slide': ApiPatientOnboardingWalkthroughSlidePatientOnboardingWalkthroughSlide;
+      'api::patient-onboarding-walkthrough.patient-onboarding-walkthrough': ApiPatientOnboardingWalkthroughPatientOnboardingWalkthrough;
       'api::subtopic.subtopic': ApiSubtopicSubtopic;
       'api::wellness-topic.wellness-topic': ApiWellnessTopicWellnessTopic;
       'api::wellness-video.wellness-video': ApiWellnessVideoWellnessVideo;
