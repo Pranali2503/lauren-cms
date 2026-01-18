@@ -904,7 +904,13 @@ export interface ApiOnboardingWalkthroughOnboardingWalkthrough
       }>;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.Enumeration<
-      ['EMPLOYER_ADMIN', 'CARE_NAVIGATOR', 'HEALTHCARE_PROVIDER', 'MIDWIFE']
+      [
+        'EMPLOYER_ADMIN',
+        'CARE_NAVIGATOR',
+        'HEALTHCARE_PROVIDER',
+        'MIDWIFE',
+        'HEALTHEVOLVE_ADMIN',
+      ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
