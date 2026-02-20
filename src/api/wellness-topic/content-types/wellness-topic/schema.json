@@ -31,10 +31,10 @@
         }
       }
     },
-    "wellness_videos": {
+    "wellness_subtopics": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::wellness-video.wellness-video",
+      "target": "api::wellness-subtopic.wellness-subtopic",
       "mappedBy": "wellness_topic"
     }
   }

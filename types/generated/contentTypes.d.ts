@@ -511,10 +511,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    wellnessVideos: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::wellness-video.wellness-video'
-    >;
   };
 }
 
@@ -1173,6 +1169,87 @@ export interface ApiSubtopicSubtopic extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiWellnessSubtopicWellnessSubtopic
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'wellness_subtopics';
+  info: {
+    displayName: 'Wellness Subtopic';
+    pluralName: 'wellness-subtopics';
+    singularName: 'wellness-subtopic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contentSteps: Schema.Attribute.DynamicZone<
+      [
+        'content.rich-text-block',
+        'content.image-block',
+        'content.stat-highlight',
+        'content.question-block',
+        'content.author-block',
+        'content.progress-bar',
+        'content.embed-block',
+        'content.section-block',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wellness-subtopic.wellness-subtopic'
+    >;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    summary: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wellness_topic: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::wellness-topic.wellness-topic'
+    >;
+  };
+}
+
 export interface ApiWellnessTopicWellnessTopic
   extends Struct.CollectionTypeSchema {
   collectionName: 'wellness_topics';
@@ -1214,99 +1291,9 @@ export interface ApiWellnessTopicWellnessTopic
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    wellness_videos: Schema.Attribute.Relation<
+    wellness_subtopics: Schema.Attribute.Relation<
       'oneToMany',
-      'api::wellness-video.wellness-video'
-    >;
-  };
-}
-
-export interface ApiWellnessVideoWellnessVideo
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'wellness_videos';
-  info: {
-    displayName: 'Wellness Video';
-    pluralName: 'wellness-videos';
-    singularName: 'wellness-video';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    durationMinutes: Schema.Attribute.Integer &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::wellness-video.wellness-video'
-    >;
-    order: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<0>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    subtitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    thumbnail: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    transcriptUrl: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    video: Schema.Attribute.Media<'videos'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    wellness_topic: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::wellness-topic.wellness-topic'
+      'api::wellness-subtopic.wellness-subtopic'
     >;
   };
 }
@@ -1831,8 +1818,8 @@ declare module '@strapi/strapi' {
       'api::patient-onboarding-walkthrough-slide.patient-onboarding-walkthrough-slide': ApiPatientOnboardingWalkthroughSlidePatientOnboardingWalkthroughSlide;
       'api::patient-onboarding-walkthrough.patient-onboarding-walkthrough': ApiPatientOnboardingWalkthroughPatientOnboardingWalkthrough;
       'api::subtopic.subtopic': ApiSubtopicSubtopic;
+      'api::wellness-subtopic.wellness-subtopic': ApiWellnessSubtopicWellnessSubtopic;
       'api::wellness-topic.wellness-topic': ApiWellnessTopicWellnessTopic;
-      'api::wellness-video.wellness-video': ApiWellnessVideoWellnessVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
