@@ -6,26 +6,17 @@
     "pluralName": "onboarding-walkthroughs",
     "displayName": "Onboarding Walkthrough"
   },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": { "i18n": { "localized": true } },
   "attributes": {
     "role": {
       "type": "enumeration",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "required": true,
       "enum": [
         "EMPLOYER_ADMIN",
         "CARE_NAVIGATOR",
+        "CLINICAL_ADMIN",
         "HEALTHCARE_PROVIDER",
         "MIDWIFE",
         "HEALTHEVOLVE_ADMIN"
@@ -33,33 +24,18 @@
     },
     "organizationType": {
       "type": "enumeration",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "required": true,
-      "enum": [
-        "HEALTHCARE",
-        "NON_HEALTHCARE"
-      ]
+      "enum": ["HEALTHCARE", "NON_HEALTHCARE"]
     },
     "headerTitle": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "required": true
     },
     "subtitle": {
       "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "required": true
     },
     "sections": {
@@ -70,11 +46,7 @@
     },
     "buttonLabels": {
       "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "component": "onboarding.button-labels",
       "repeatable": false
     }

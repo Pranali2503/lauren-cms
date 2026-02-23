@@ -6,66 +6,36 @@
     "pluralName": "wellness-subtopics",
     "displayName": "Wellness Subtopic"
   },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": { "i18n": { "localized": true } },
   "attributes": {
     "title": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "required": true
     },
-    "slug": {
-      "type": "uid",
-      "required": true
-    },
+    "slug": { "type": "uid", "required": true },
     "order": {
       "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "summary": {
       "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "estimatedReadTimeMinutes": {
+      "type": "integer",
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "heroImage": {
       "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "contentSteps": {
       "type": "dynamiczone",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": { "i18n": { "localized": true } },
       "components": [
         "content.rich-text-block",
         "content.image-block",

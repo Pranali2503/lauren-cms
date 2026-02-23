@@ -903,6 +903,7 @@ export interface ApiOnboardingWalkthroughOnboardingWalkthrough
       [
         'EMPLOYER_ADMIN',
         'CARE_NAVIGATOR',
+        'CLINICAL_ADMIN',
         'HEALTHCARE_PROVIDER',
         'MIDWIFE',
         'HEALTHEVOLVE_ADMIN',
@@ -1206,6 +1207,12 @@ export interface ApiWellnessSubtopicWellnessSubtopic
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    estimatedReadTimeMinutes: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
